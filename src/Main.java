@@ -2,11 +2,12 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        task1();
-        task2();
-        task3();
-        task4();
-        task5();
+        //task1();
+        //task2();
+        //task3();
+        //task4();
+        //task5();
+        task6();
     }
 
     public static void task1() {
@@ -91,6 +92,35 @@ public class Main {
             default:
                 System.out.println("Такого месяца не существует");
         }
+    }
+    static public void task6(){
+       int age = 19;
+       int salary = 58000;
+       int requiredAge = 23;
+       int limitMax = 3;
+       int limitMin = 2;
+       double ratioMax = 1.5;
+       double ratioMin = 1.2;
+       int salaryMax = 80000;
+       int salaryMin = 50000;
+       double creditLimit = 0;
+
+       if(age >= requiredAge && salary >= salaryMin && salary < salaryMax){
+           creditLimit = (salary * limitMax) * ratioMin;
+       }
+       else if (age < requiredAge && salary >= salaryMin && salary < salaryMax){
+           creditLimit = (salary * limitMin) * ratioMin;
+       } else if (age >= requiredAge && salary >= salaryMax) {
+           creditLimit = (salary * limitMax) * ratioMax;
+       } else if (age < requiredAge && salary >= salaryMax) {
+           creditLimit = (salary * limitMin) * ratioMax;
+       }
+       else {
+           System.out.println("Не подходите по пораметрам");
+       }
+        System.out.println("Мы готовы выдать вам кредитную карту с лимитом " + creditLimit +" рублей");
+
+
     }
 
 }
