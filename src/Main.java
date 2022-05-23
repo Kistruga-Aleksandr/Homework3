@@ -7,7 +7,8 @@ public class Main {
         //task3();
         //task4();
         //task5();
-        task6();
+        //task6();
+        task7();
     }
 
     public static void task1() {
@@ -93,34 +94,64 @@ public class Main {
                 System.out.println("Такого месяца не существует");
         }
     }
-    static public void task6(){
-       int age = 19;
-       int salary = 58000;
-       int requiredAge = 23;
-       int limitMax = 3;
-       int limitMin = 2;
-       double ratioMax = 1.5;
-       double ratioMin = 1.2;
-       int salaryMax = 80000;
-       int salaryMin = 50000;
-       double creditLimit = 0;
 
-       if(age >= requiredAge && salary >= salaryMin && salary < salaryMax){
-           creditLimit = (salary * limitMax) * ratioMin;
-       }
-       else if (age < requiredAge && salary >= salaryMin && salary < salaryMax){
-           creditLimit = (salary * limitMin) * ratioMin;
-       } else if (age >= requiredAge && salary >= salaryMax) {
-           creditLimit = (salary * limitMax) * ratioMax;
-       } else if (age < requiredAge && salary >= salaryMax) {
-           creditLimit = (salary * limitMin) * ratioMax;
-       }
-       else {
-           System.out.println("Не подходите по пораметрам");
-       }
-        System.out.println("Мы готовы выдать вам кредитную карту с лимитом " + creditLimit +" рублей");
+    static public void task6() {
+        int age = 19;
+        int salary = 58000;
+        int requiredAge = 23;
+        int limitMax = 3;
+        int limitMin = 2;
+        double ratioMax = 1.5;
+        double ratioMin = 1.2;
+        int salaryMax = 80000;
+        int salaryMin = 50000;
+        double creditLimit = 0;
 
+        if (age >= requiredAge && salary >= salaryMin && salary < salaryMax) {
+            creditLimit = (salary * limitMax) * ratioMin;
+        } else if (age < requiredAge && salary >= salaryMin && salary < salaryMax) {
+            creditLimit = (salary * limitMin) * ratioMin;
+        } else if (age >= requiredAge && salary >= salaryMax) {
+            creditLimit = (salary * limitMax) * ratioMax;
+        } else if (age < requiredAge && salary >= salaryMax) {
+            creditLimit = (salary * limitMin) * ratioMax;
+        } else {
+            System.out.println("Не подходите по пораметрам");
+        }
+        System.out.println("Мы готовы выдать вам кредитную карту с лимитом " + creditLimit + " рублей");
 
+    }
+    static public void task7(){
+        int age = 25;
+        int salary = 60000;
+        int wantedSum = 330000;
+        int loanTerm = 12;
+        double baseRate = 1.1;
+        double monthlyPaymentMax = salary * 0.5;
+        int age1 = 23;
+        int age2 = 30;
+        double bidIncreaseMax = 0.01;
+        double bidIncreaseMin = 0.005;
+        double rateDrop = 0.007;
+        int salaryMax = 80000;
+        double monthlyPayment;
+        if(age < age1 && salary >= salaryMax){
+           baseRate= baseRate + bidIncreaseMax - rateDrop;
+        } else if (age < age1) {
+            baseRate = baseRate + bidIncreaseMax;
+        } else if (age < age2 && salary >= salaryMax) {
+            baseRate = baseRate + bidIncreaseMin - rateDrop;
+        } else if (age < age2) {
+            baseRate = baseRate + bidIncreaseMin;
+        }
+        monthlyPayment = (wantedSum * baseRate) / loanTerm;
+        if (monthlyPayment > monthlyPaymentMax){
+            System.out.println("Максимальный платеж при ЗП " + salary +
+                    " равен " + monthlyPaymentMax + " рублей. Платеж по кредиту " + monthlyPayment +" рублей. Отказано.");
+        } else if (monthlyPayment <= monthlyPaymentMax) {
+            System.out.println("Максимальный платеж при ЗП " + salary +
+                    " равен " + monthlyPaymentMax + " рублей. Платеж по кредиту " + monthlyPayment +" рублей. Одобрен.");
+        }
     }
 
 }
