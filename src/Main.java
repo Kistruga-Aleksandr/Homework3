@@ -2,12 +2,12 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        //task1();
-        //task2();
-        //task3();
-        //task4();
-        //task5();
-        //task6();
+        task1();
+        task2();
+        task3();
+        task4();
+        task5();
+        task6();
         task7();
     }
 
@@ -58,13 +58,14 @@ public class Main {
 
     public static void task4() {
         int deliveryDistance = 95;
-        if (deliveryDistance <= 20) {
-            System.out.println("Доставка займет 1 дня");
-        } else if (deliveryDistance > 20 && deliveryDistance <= 60) {
-            System.out.println("Доставка займет 2 дня");
-        } else if (deliveryDistance > 60 && deliveryDistance <= 100) {
-            System.out.println("Доставка займет 3 дня");
+        int delivery = 1;
+         if (deliveryDistance > 60) {
+             delivery++;
+         }
+          if ( deliveryDistance <= 100) {
+             delivery++;
         }
+        System.out.println("Доставка займет " + delivery + " дня");
     }
 
     public static void task5() {
